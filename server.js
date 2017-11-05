@@ -40,6 +40,14 @@ app.prepare().then(() => {
       }
   })
 
+  api.post('/event', function (req, res) {
+   console.log(req.body);
+
+   // db.editArticle()
+
+   res.send("Success!");
+ });
+
   server.use('/api', api);
 
   server.get('*', (req, res) => {

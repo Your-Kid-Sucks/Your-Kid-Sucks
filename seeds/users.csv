@@ -1,0 +1,23 @@
+id,name,email,password,role,school_id,is_deleted
+1,Enrique Dyer,mthurn@live.com,3738750361,EDUCATOR,1,FALSE
+2,Parker Lutz,fangorn@hotmail.com,482455710,PARENT,1,FALSE
+3,Julia Wallace,euice@outlook.com,4289090433,PARENT,1,FALSE
+4,Natalia Mcintyre,rgarcia@optonline.net,8987706701,PARENT,1,FALSE
+5,Taliyah Leblanc,mxiao@yahoo.com,1915361158,EDUCATOR,1,FALSE
+6,Milton Osborn,firstpr@att.net,8307071735,PARENT,1,FALSE
+7,Bryan Steele,webdragon@comcast.net,1712259267,PARENT,1,FALSE
+8,Eve Barrera,jguyer@aol.com,9025904038,PARENT,1,FALSE
+9,Meredith Gilbert,sakusha@yahoo.ca,7641433193,EDUCATOR,1,FALSE
+10,Callum French,crandall@sbcglobal.net,7328935125,PARENT,1,FALSE
+11,Shane George,mschilli@optonline.net,7894250461,PARENT,1,FALSE
+12,Greta Chapman,koudas@hotmail.com,7312828194,PARENT,1,FALSE
+13,Damion Peck,noahb@msn.com,2295644069,EDUCATOR,1,FALSE
+14,Jamir Fry,stinson@att.net,6418548663,PARENT,1,FALSE
+15,Roy Rice,jcholewa@gmail.com,4606536377,PARENT,1,FALSE
+16,Logan Reese,doormat@yahoo.ca,9253059481,PARENT,1,FALSE
+17,Joaquin Meyers,yamla@outlook.com,7840937952,EDUCATOR,1,FALSE
+18,Danna Bryan,doche@live.com,1218580711,PARENT,1,FALSE
+19,Ezra Morgan,dkasak@yahoo.com,3326298370,PARENT,1,FALSE
+20,Gwendolyn Bradshaw,cosimo@aol.com,5263548838,PARENT,2,FALSE
+21,Lillian Flores,dbanarse@live.com,1922613273,EDUCATOR,2,FALSE
+22,Coby Strickland,devphil@aol.com,3110529163,PARENT,2,FALSE
