@@ -27,8 +27,8 @@ knex('users').del().then(() => seedFile(knex, path.resolve('./seeds/users.csv'),
 })
 ).then(() => knex('students').del().then(() => seedFile(knex, path.resolve('./seeds/students.csv'), 'students', [
   'id',
-  'name',
   'school_student_id',
+  'name',
   'school_id',
   'is_deleted'
 ], {
@@ -73,7 +73,20 @@ knex('users').del().then(() => seedFile(knex, path.resolve('./seeds/users.csv'),
   columnSeparator: ',',
   ignoreFirstLine: true
 })
+).then(() => knex('events').del().then(() => seedFile(knex, path.resolve('./seeds/events.csv'), 'events', [
+  'id',
+  'student_id',
+  'class_id',
+  'user_id',
+  'date',
+  'behavior_id',
+  'school_id',
+  'is_deleted'
+], {
+  columnSeparator: ',',
+  ignoreFirstLine: true
+})
 ).then(() => {
   console.log('Seeded!');
   process.exit(0);
-}))))));
+})))))));
