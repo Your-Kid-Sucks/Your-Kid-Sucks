@@ -1,0 +1,28 @@
+{
+  "name": "your-kid-sucks",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.16.2",
+    "next": "^4.1.4",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-kid-sucks/your-kid-sucks"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/your-kid-sucks/your-kid-sucks/issues"
+  },
+  "homepage": "https://github.com/your-kid-sucks/your-kid-sucks"
+}
