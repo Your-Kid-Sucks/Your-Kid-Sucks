@@ -1,0 +1,7 @@
+id,user_id,Name,description,section,school_id,is_deleted
+1,1,French I,its a great class!,Fall 2017 Period 1,1,FALSE
+2,5,French II,its a great class!,Fall 2017 Period 2,1,FALSE
+3,9,US History,its a great class!,Fall 2017 Period 3,1,FALSE
+4,13,GYM,its a great class!,Fall 2017 Period 4,1,FALSE
+5,17,English,its a great class!,Fall 2017 Period 5,1,FALSE
+6,21,Algebra,its a great class!,Fall 2017 Period 6,1,FALSE

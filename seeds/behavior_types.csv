@@ -1,0 +1,25 @@
+id,name,positivity,school_id,is_deleted
+1,Tardy,-1,1,FALSE
+2,Absent,-1,1,FALSE
+3,Poor HW Completion,-1,1,FALSE
+4,Vandalism,-1,1,FALSE
+5,Excessive Getting Up,-1,1,FALSE
+6,Cursing,-1,1,FALSE
+7,Rude,-1,1,FALSE
+8,Poor Focus,-1,1,FALSE
+9,Sharing Well,1,1,FALSE
+10,Polite / Respectful,1,1,FALSE
+11,Good HW Completion,1,1,FALSE
+12,Good Teamwork,1,1,FALSE
+13,Tardy,-1,2,FALSE
+14,Absent,-1,2,FALSE
+15,Poor HW Completion,-1,2,FALSE
+16,Vandalism,-1,2,FALSE
+17,Excessive Getting Up,-1,2,FALSE
+18,Cursing,-1,2,FALSE
+19,Rude,-1,2,FALSE
+20,Poor Focus,-1,2,FALSE
+21,Sharing Well,1,2,FALSE
+22,Polite / Respectful,1,2,FALSE
+23,Good HW Completion,1,2,FALSE
+24,Good Teamwork,1,2,FALSE
