@@ -11,24 +11,38 @@ const knex = require('knex')({
 });
 const bookshelf = require('bookshelf')(knex);
 
-var Student = bookshelf.Model.extend({
+var Students = bookshelf.Model.extend({
   tableName: 'students',
-  classes: function() {
-    return this.belongsToMany(Classroom);
+  classrooms: function() {
+    return this.belongsToMany(Classrooms);
   }
 });
 
-var Classroom = bookshelf.Model.extend({
+var Classrooms = bookshelf.Model.extend({
   tableName: 'classrooms',
-  students: function() {
+	students: function() {
     return this.belongsToMany(Students);
   }
 });
 
-exports.getStudentssInClass = function(classID) {
-	Classroom.where('id', classID).fetch({withRelated: ['student.id']})
-}
+exports.getStudentsInClass = (classID) => (
+	Classrooms.where('id', classID).fetch({ withRelated: ['students'] })
+)
 
 exports.getStudentClasses = function(StudentID) {
 
+}
+
+exports.dontUseMe = function() {
+	var student1 = new Students({name: "first last", school_student_id: 1234, school_id :1});
+	var student2 = new Students({name: "first2 last2", school_student_id: 2424, school_id :1});
+
+	Promise.all([student1.save(), student2.save()])
+		.then(function() {
+			return Promise.all([
+				new Classrooms({id:1}).students().attach([student1, student2])
+			])
+		}).catch((err) => {
+			console.log(err);
+		});
 }

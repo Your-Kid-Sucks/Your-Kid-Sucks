@@ -7,6 +7,7 @@ const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const handle = app.getRequestHandler();
 
+
 app.prepare().then(() => {
   const server = express();
   const api = express.Router();
@@ -16,10 +17,15 @@ app.prepare().then(() => {
   });
 
   api.get('/students?', (req, res) => {
-    if(req.query.user !== undefined)
-      db.getStudentssInClass(req.query.user).then((students) => {
-        res.json(students)
-      });
+    if(req.query.classroom !== undefined)
+      var dat = db.getStudentsInClass(req.query.classroom);
+      if(dat !== undefined) {
+        dat.then((data) => {
+        res.json(data)
+        });
+      } else {
+        res.send('Error!');
+      }
   });
 
   server.use('/api', api);
