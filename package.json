@@ -4,8 +4,11 @@
   "description": "",
   "main": "server.js",
   "dependencies": {
+    "bookshelf": "^0.10.4",
     "express": "^4.16.2",
+    "knex": "^0.13.0",
     "next": "^4.1.4",
+    "pg": "^7.4.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0"
   },
