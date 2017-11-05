@@ -33,14 +33,16 @@ exports.getStudentsInAllClasses = () => (
 	Classrooms.fetchAll({ withRelated: ['students'] })
 )
 
-console.log(knex('students').where('student_id', 6))
-
 exports.getStudentsByUser = (classID) => (
 	null // to do
 )
 
 exports.getEventsByStudent = (studentID) => (
-	knex('events').where('student_id', studentID)
+	knex('events').where('student_id', studentID).leftJoin('behavior_types', 'events.behavior_id', 'behavior_types.id')
+)
+
+exports.getStudentBPA = (studentID) => (
+	knex('events').where('student_id', studentID).leftJoin('behavior_types', 'events.behavior_id', 'behavior_types.id').avg('positivity as BPA')
 )
 
 exports.dontUseMe = function() {

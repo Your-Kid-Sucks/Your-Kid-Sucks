@@ -12,8 +12,20 @@ const knex = require('knex')({
 	}
 });
 
-
-knex('users').del().then(() => seedFile(knex, path.resolve('./seeds/users.csv'), 'users', [
+knex('events').del().then(() => seedFile(knex, path.resolve('./seeds/events.csv'), 'events', [
+  'id',
+  'student_id',
+  'class_id',
+  'user_id',
+  'date',
+  'behavior_id',
+  'school_id',
+  'is_deleted'
+], {
+  columnSeparator: ',',
+  ignoreFirstLine: true
+})
+).then(() => knex('users').del().then(() => seedFile(knex, path.resolve('./seeds/users.csv'), 'users', [
   'id',
   'name',
   'email',
@@ -73,20 +85,7 @@ knex('users').del().then(() => seedFile(knex, path.resolve('./seeds/users.csv'),
   columnSeparator: ',',
   ignoreFirstLine: true
 })
-).then(() => knex('events').del().then(() => seedFile(knex, path.resolve('./seeds/events.csv'), 'events', [
-  'id',
-  'student_id',
-  'class_id',
-  'user_id',
-  'date',
-  'behavior_id',
-  'school_id',
-  'is_deleted'
-], {
-  columnSeparator: ',',
-  ignoreFirstLine: true
-})
 ).then(() => {
   console.log('Seeded!');
-  process.exit(0);
+  setTimeout(function(){ process.exit(0); }, 10000);
 })))))));

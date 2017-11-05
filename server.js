@@ -39,7 +39,9 @@ app.prepare().then(() => {
       var dat = db.getEventsByStudent(req.query.student);
       if(dat !== undefined) {
         dat.then((data) => {
-        res.json(data)
+          db.getStudentBPA(req.query.student).then((BPA) => {
+            res.json({data, BPA:(BPA[0].BPA*4)});
+          });
         });
       } else {
         res.send('Error!');
