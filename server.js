@@ -1,6 +1,7 @@
+require('dotenv').config();
 const express = require('express');
 const next = require('next');
-
+const db = require('./database');
 const port = parseInt(process.env.PORT, 10) || 3000;
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
@@ -12,6 +13,13 @@ app.prepare().then(() => {
 
   api.get('/', (req, res) => {
     res.send('Welcome to the API!!!');
+  });
+
+  api.get('/students?', (req, res) => {
+    if(req.query.user !== undefined)
+      db.getStudentssInClass(req.query.user).then((students) => {
+        res.json(students)
+      });
   });
 
   server.use('/api', api);

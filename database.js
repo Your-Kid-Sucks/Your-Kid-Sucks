@@ -1,12 +1,12 @@
+require('dotenv').config();
 const pg = require('pg');
-const kenx = require('kenx')({
+const knex = require('knex')({
 	client: 'pg',
 	connection: {
-		host: '',
-		database: '',
-		user: '',
-		password: '',
-		port: ''
+		host: process.env.PGHOST,
+		database: process.env.PGDATABASE,
+		user: process.env.PGUSER,
+		password: process.env.PGPASSWORD
 	}
 });
 const bookshelf = require('bookshelf')(knex);
@@ -26,7 +26,7 @@ var Classroom = bookshelf.Model.extend({
 });
 
 exports.getStudentssInClass = function(classID) {
-
+	Classroom.where('id', classID).fetch({withRelated: ['student.id']})
 }
 
 exports.getStudentClasses = function(StudentID) {
