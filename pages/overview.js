@@ -54,6 +54,10 @@ const Overview = () => (
       #viewer > * {
         margin-bottom: 0.5em;
       }
+
+      details details {
+        margin-left: 1em;
+      }
     `}
   </style>
   <div>
