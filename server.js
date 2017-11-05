@@ -17,8 +17,12 @@ app.prepare().then(() => {
   });
 
   api.get('/students?', (req, res) => {
-    if(req.query.classroom !== undefined)
-      var dat = db.getStudentsInClass(req.query.classroom);
+    if(req.query.classroom !== undefined){
+      if(req.query.classroom == '*') {
+        var dat = db.getStudentsInAllClasses();
+      } else {
+        var dat = db.getStudentsInClass(req.query.classroom);
+      }
       if(dat !== undefined) {
         dat.then((data) => {
         res.json(data)
@@ -26,10 +30,12 @@ app.prepare().then(() => {
       } else {
         res.send('Error!');
       }
+    }
   });
 
   api.get('/events?', (req, res) => {
     if(req.query.student !== undefined)
+
       var dat = db.getEventsByStudent(req.query.student);
       if(dat !== undefined) {
         dat.then((data) => {

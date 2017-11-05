@@ -29,6 +29,10 @@ exports.getStudentsInClass = (classID) => (
 	Classrooms.where('id', classID).fetch({ withRelated: ['students'] })
 )
 
+exports.getStudentsInAllClasses = () => (
+	Classrooms.fetchAll({ withRelated: ['students'] })
+)
+
 console.log(knex('students').where('student_id', 6))
 
 exports.getStudentsByUser = (classID) => (
