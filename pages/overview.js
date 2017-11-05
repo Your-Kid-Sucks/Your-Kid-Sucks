@@ -1,40 +1,28 @@
+import EventViewer from '../components/EventViewer.js'
+import Link from 'next/link'
+import fetch from 'isomorphic-unfetch'
+
 let fields = {
   educator: "Educator",
   class: "Class",
   student: "Student",
 }
 
-let fN = ["Bill", "Billy", "Bob", "Joe", "Julie", "Jenny"]
-let lN = ["Smith", "McIntosh", "Green", "Williams", "Brown", "Jones"]
-
-function randInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-let randName = () => fN[randInt(0, fN.length)] + " " + lN[randInt(0, lN.length)]
-
+let eventData = [
+  {timeElapsed: "11/5/2017 9:32 AM", description: "Stayed on task", positivity: 1},
+  {timeElapsed: "11/5/2017 8:32 AM", description: "Cursed teacher", positivity: -1},
+  {timeElapsed: "11/5/2017 69:32 AM", description: "Pooped on floor", positivity: -1},
+  {timeElapsed: "11/5/2017 10:32 AM", description: "Worked well with others", positivity: 1},
+  {timeElapsed: "11/5/2017 9:35 AM", description: "Completed all work", positivity: 1},
+]
 let classes = [
   "Computer Science I",
   "Calculus III",
   "Databases"
 ]
 
-let exampleData = classes.map(c => {
-  return {
-    name: c,
-    studentData: Array(5).fill(0).map(
-      () => {
-        return {
-          name: randName(),
-          bpa: 4 * Math.random()
-        }
-      }
-    )
-  }
-})
 
-
-const Overview = () => (
+const Overview = (props) => (
   <div>
   <style jsx>
     {`
@@ -77,22 +65,18 @@ const Overview = () => (
     <hr />
     <div id="viewer">
       {
-        exampleData.map(c => (
+        props.data.students.map(c => (
           <details>
             <summary>{c.name}</summary>
             {
-              c.studentData.map(s => (
+              /*c.studentData.map(s => (
                 <details>
                   <summary>{s.name}: <span style={{color: `hsl(${s.bpa * 30}, 70%, 50%)`}}>{s.bpa.toFixed(2)}</span></summary>
                   <ul>
-                    <li>Ha</li>
-                    <li>Ha</li>
-                    <li>There's</li>
-                    <li>Nothing</li>
-                    <li>Here</li>
+                  <EventViewer events={eventData} />
                   </ul>
                 </details>
-              ))
+              ))*/
             }
           </details>
         ))
@@ -101,5 +85,16 @@ const Overview = () => (
   </div>
   </div>
 )
+
+Overview.getInitialProps = async function() {
+  const res = await fetch('http://localhost:3000/api/students?classroom=1')
+  const data = await res.json()
+
+  console.log(`Show data fetched. Count: ${data.length}`)
+console.log(data.students);
+  return {
+   data
+  }
+}
 
 export default Overview
