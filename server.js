@@ -28,6 +28,18 @@ app.prepare().then(() => {
       }
   });
 
+  api.get('/events?', (req, res) => {
+    if(req.query.student !== undefined)
+      var dat = db.getEventsByStudent(req.query.student);
+      if(dat !== undefined) {
+        dat.then((data) => {
+        res.json(data)
+        });
+      } else {
+        res.send('Error!');
+      }
+  })
+
   server.use('/api', api);
 
   server.get('*', (req, res) => {

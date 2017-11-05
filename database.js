@@ -29,9 +29,13 @@ exports.getStudentsInClass = (classID) => (
 	Classrooms.where('id', classID).fetch({ withRelated: ['students'] })
 )
 
-exports.getStudentClasses = function(StudentID) {
+exports.getStudentsByUser = (classID) => (
+	null // to do
+)
 
-}
+exports.getEventsByStudent = (studentID) => (
+	knex('events').where('student_id', studentID)
+)
 
 exports.dontUseMe = function() {
 	var student1 = new Students({name: "first last", school_student_id: 1234, school_id :1});
