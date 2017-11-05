@@ -1,8 +1,18 @@
+import EventViewer from '../components/EventViewer.js'
+
 let fields = {
   educator: "Educator",
   class: "Class",
   student: "Student",
 }
+
+let eventData = [
+  {timeElapsed: "11/5/2017 9:32 AM", description: "Stayed on task", positivity: 1},
+  {timeElapsed: "11/5/2017 8:32 AM", description: "Cursed teacher", positivity: -1},
+  {timeElapsed: "11/5/2017 69:32 AM", description: "Pooped on floor", positivity: -1},
+  {timeElapsed: "11/5/2017 10:32 AM", description: "Worked well with others", positivity: 1},
+  {timeElapsed: "11/5/2017 9:35 AM", description: "Completed all work", positivity: 1},
+]
 
 let fN = ["Bill", "Billy", "Bob", "Joe", "Julie", "Jenny"]
 let lN = ["Smith", "McIntosh", "Green", "Williams", "Brown", "Jones"]
@@ -32,7 +42,7 @@ let exampleData = classes.map(c => {
     )
   }
 })
-
+console.log(exampleData)
 
 const Overview = () => (
   <div>
@@ -85,11 +95,7 @@ const Overview = () => (
                 <details>
                   <summary>{s.name}: <span style={{color: `hsl(${s.bpa * 30}, 70%, 50%)`}}>{s.bpa.toFixed(2)}</span></summary>
                   <ul>
-                    <li>Ha</li>
-                    <li>Ha</li>
-                    <li>There's</li>
-                    <li>Nothing</li>
-                    <li>Here</li>
+                  <EventViewer events={eventData} />
                   </ul>
                 </details>
               ))

@@ -11,7 +11,9 @@
     "next": "^4.1.4",
     "pg": "^7.4.0",
     "react": "^16.0.0",
-    "react-dom": "^16.0.0"
+    "react-autocomplete": "^1.7.2",
+    "react-dom": "^16.0.0",
+    "styled-jsx": "^2.1.2"
   },
   "devDependencies": {},
   "scripts": {
