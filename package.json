@@ -11,7 +11,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "dev": "next",
+    "dev": "node server.js",
     "build": "next build",
     "start": "next start"
   },
